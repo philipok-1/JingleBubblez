@@ -362,7 +362,7 @@ player.hit=true;
 }
 else {player.hit=false; }
 
-document.getElementById("score").innerHTML=("Presents bonus: "+presentScore);
+document.getElementById("score").innerHTML=("Bonus: "+presentScore);
 document.getElementById("highscore").innerHTML=("Highscore: "+highScore);
 //document.getElementById("hit").innerHTML=("hit="+player.hit);
 
