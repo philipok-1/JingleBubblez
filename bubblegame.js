@@ -287,7 +287,7 @@ function startUp(){
 if (started===false){
 
 var elem = document.getElementById("playagain");
-elem.style.visibility="visible";
+elem.style.visibility="hidden";
 
 var elements=document.getElementsByClassName("intro");
 for (var i=0; i<elements.length; i++){
