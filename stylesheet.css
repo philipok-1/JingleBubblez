@@ -20,5 +20,5 @@
 
 #introscreen {position: absolute; padding: 5px; width: 100%; height: 100%; visibility:visible; background-image:url("Christmas-Scene.jpg"); background-size: contain; background-repeat: no-repeat;}
 
-#playAgain {visibility: hidden;}
+#playAgain {visibility: hidden;margin-left: 640px; top: 350px;}
 
