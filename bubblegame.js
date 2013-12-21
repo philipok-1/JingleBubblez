@@ -189,7 +189,7 @@ p.hit=false
 		p.hit=false;
 		
 		collisionCheck(presents, p);
-		if (p.hit){p.colour="green"; presentScore+=10};
+		if (p.hit){p.colour="green";p.alpha=1; presentScore+=10};
 		
 		p.hit=false
 	
