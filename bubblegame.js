@@ -388,6 +388,7 @@ ctx.fillText("G A M E   O V E R", w/4, h/2)
 ctx.fillText("Score: "+total, w/4+30, h/2+60)
 ctx.fill()
 
+//window.setTimeout(startUp,2000)
 
 
 }
