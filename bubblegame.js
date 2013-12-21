@@ -286,6 +286,9 @@ ctx.clearRect(0,0,w,h);
 function startUp(){
 if (started===false){
 
+var elem = document.getElementById("playagain");
+elem.style.visibility="visible";
+
 var elements=document.getElementsByClassName("intro");
 for (var i=0; i<elements.length; i++){
 elements[i].style.visibility="hidden";}
