@@ -379,14 +379,15 @@ var total=presentScore+timer;
 if (total>highScore){
 highScore=total}
 reset();
+var elem = document.getElementById("playagain");
+elem.style.visibility="visible";
+
 ctx.font="40px Electrolize"
 ctx.fillStyle="black"
 ctx.fillText("G A M E   O V E R", w/4, h/2)
 ctx.fillText("Score: "+total, w/4+30, h/2+60)
 ctx.fill()
 
-var elem = document.getElementById("playagain");
-elem.style.visibility="visible";
 
 
 }
