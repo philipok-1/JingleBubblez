@@ -99,7 +99,7 @@ else {this.x-=1}
 
 SnowFlake.prototype.draw=function(){
 
-  ctx.drawImage(snowflake, this.x+15, this.y+15, 30, 30)
+  ctx.drawImage(snowflake, this.x-15, this.y-15, 30, 30)
 
 }
 
@@ -303,11 +303,11 @@ masterList.push(player)
 
 circleDraw=setInterval("renderCircles(masterList)", 20);
      
-circleGen=setInterval("createCircle(circles)",2500);
+circleGen=setInterval("createCircle(circles)",2000);
 
 snowDrop=setInterval("dropSnowflake(flakes)", 6000);
 
-presentDrop=setInterval("dropPresent(presents)", 4000)
+presentDrop=setInterval("dropPresent(presents)", 5000)
 
 
 gameTimer=setInterval("incrementTimer()", 1000);
@@ -385,10 +385,10 @@ reset();
 var elem = document.getElementById("playagain");
 elem.style.visibility="visible";
 
-ctx.font="40px Electrolize"
-ctx.fillStyle="black"
-ctx.fillText("G A M E   O V E R", w/4, h/2)
-ctx.fillText("Score: "+total, w/4+30, h/2+60)
+ctx.font="50px Electrolize"
+ctx.fillStyle="white"
+ctx.fillText("G A M E   O V E R", w/4-30, h/2-70)
+ctx.fillText("Score: "+total, w/4+50, h/2-10)
 ctx.fill()
 
 //window.setTimeout(startUp,2000)
