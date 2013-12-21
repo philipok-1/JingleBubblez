@@ -189,12 +189,12 @@ p.hit=false
 		p.hit=false;
 		
 		collisionCheck(presents, p);
-		if (p.hit){presentScore+=10};
+		if (p.hit){p.colour="green"; presentScore+=10};
 		
 		p.hit=false
 	
 		collisionCheck(circles, p);
-		if (p.hit){p.colour="red"; p.alpha=1;p.life-=2}
+		if (p.hit){p.colour="red"; p.alpha=1;p.life-=3.5}
 		
 		else {p.colour="white"; p.alpha=0}
 		
