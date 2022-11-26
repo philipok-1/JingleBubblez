@@ -12,6 +12,8 @@ var presents=[]
 var masterList=[]
 var presentScore=0
 var highScore=0
+var ipx=0
+var ipy=0
 
 
 var c=document.getElementById("canvas1");
@@ -23,6 +25,7 @@ function levelUp(){
 var adjust=timer/45
 return adjust
 }
+
 
 function Circle(radius){
 		
@@ -40,14 +43,14 @@ function Circle(radius){
 	this.colour="rgba("+randomRGB()+","+this.alpha+")";
 	
 	
-	this.max=randomInt(2,12);
+	this.max=40;
 	
 	this.alive=true;
 	
 	this.draw=function(){
 	
 	this.radius+=(1/500*this.startRadius);
-		if (this.radius>=this.startRadius*this.max){this.alive=false}
+		if (this.radius>=this.max){this.alive=false}
 	
 	
 		ctx.fillStyle=this.colour;
@@ -139,10 +142,12 @@ Player.prototype=new Circle();
 
 Player.prototype.move=function(){
 
-		
-		this.x-=ipx/20
-		this.y+=ipy/20
-		
+		this.x+=ipx
+		this.y+=ipy
+                ipx-=1
+		ipy-=1
+                if (ipx<=0){ipx=0}
+                if (ipy<=0){ipy=0}
 }
 
 Player.prototype.draw=function(){
@@ -255,12 +260,54 @@ if (p.life<=0){
 	}
 	
 
- window.addEventListener('deviceorientation', function (event) {
-  ipx = event.beta;
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // Do nothing if the event was already processed
+  }
 
-  ipy = event.gamma;
-  
+  SPEED=5
+
+  ipx=0
+  ipy=0
+
+
+  switch (event.key) {
+    case "ArrowDown":      
+      ipy=SPEED
+      ipx=0
+      break;
+    case "ArrowUp":
+      // code for "up arrow" key press.
+      ipy=-SPEED
+      ipx=0
+      break;
+
+    case "ArrowLeft":
+      // code for "left arrow" key press.
+      ipx=-SPEED
+      break;
+    case "ArrowRight":
+      // code for "right arrow" key press.
+      ipx=SPEED
+      break;
+    default:
+
+      return; // Quit when this doesn't handle the key event.
+  }
+
+
+  // Cancel the default action to avoid it being handled twice
+  event.preventDefault();
 }, true);
+// the last option dispatches the event to the listener first,
+// then dispatches event to window
+
+// window.addEventListener('deviceorientation', function (event) {
+  //ipx = event.beta;
+
+//  ipy = event.gamma;
+  
+//}, true);
 
 function reset(){
 
@@ -303,7 +350,7 @@ masterList.push(player)
 
 circleDraw=setInterval("renderCircles(masterList)", 20);
      
-circleGen=setInterval("createCircle(circles)",2000);
+circleGen=setInterval("createCircle(circles)",5000);
 
 snowDrop=setInterval("dropSnowflake(flakes)", 6000);
 
